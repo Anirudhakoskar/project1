@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Register() {
+function Register({onRegisterSuccesful}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -8,6 +8,14 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setUsername("");
+    setEmail("");
+    setPassword("");
+
+    setTimeout(() => {
+      onRegisterSuccesful();
+    },2000);
 
     if (
       username === "Anirudh" &&
